@@ -1,0 +1,2 @@
+use bootstrap for the pretty
+not going to use react/angular/friends, at least not yet - I'm not trying to do anything fancy frontend

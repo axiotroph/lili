@@ -1,0 +1,10 @@
+<%= form_with scope: :todo, url: todos_path do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

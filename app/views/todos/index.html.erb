@@ -1,0 +1,17 @@
+<%= link_to "new", new_todo_path %>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+  </tr>
+ 
+  <% @todos.each do |todo| %>
+    <tr>
+      <td><%= todo.title %></td>
+      <td><%= link_to 'Show', todo_path(todo) %></td>
+      <td><%= link_to 'Delete', todo_path(todo), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+

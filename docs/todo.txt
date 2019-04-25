@@ -1,0 +1,14 @@
+Todo list
+  Basic functionality
+  Postpone
+    Some bookeeping there?
+  Recurring tasks and other automation
+
+Users
+Authentication
+
+Budget
+
+Homepage
+
+Calendar?
