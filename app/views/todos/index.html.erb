@@ -19,7 +19,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <%= form_with(model: Todo.new) do |form| %>
-          <%= form.text_field(:title, placeholder: 'new task') %>
+          <%= form.text_field(:title, placeholder: 'new') %>
         <% end %>
       </li>
       <% @todos.each do |todo| %>
