@@ -8,7 +8,7 @@ class TodosController < ApplicationController
   end
 
   def create
-    @todo = Todo.new(params.require(:todo).permit(:title))
+    @todo = Todo.new(params.require(:todo).permit(:title, :due))
     @todo.save
     redirect_to todos_path
   end

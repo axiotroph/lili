@@ -1,7 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="#">
-    <%= image_tag('lili.jpg', size: "64x36") =%>
-  </a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -20,13 +17,20 @@
       <li class="list-group-item">
         <%= form_with(model: Todo.new) do |form| %>
           <%= form.text_field(:title, placeholder: 'new', autofocus: true) %>
+          <%= form.date_field(:due, value: Date.today) %>
         <% end %>
       </li>
-      <% @todos.each do |todo| %>
-        <li class="list-group-item"> 
-          <%=todo.title=%> 
-          <%= link_to 'Show', todo_path(todo) %>
-          <%= link_to 'Delete', todo_path(todo), method: :delete %>
+      <% @todos.group_by{|t| t.due}.sort_by{|(due, _)| due ? due.to_time.to_i : Float::INFINITY}.each do |(due, tasks)| %>
+        <li class="list-group-item">
+          due <%= describe_date_relative(due) %>
+          <ul class="list-group">
+            <% tasks.each do |todo| %>
+              <li class="list-group-item"> 
+                <%=todo.title=%> 
+                <%= link_to 'finish', todo_path(todo), method: :delete %>
+              </li>
+            <% end %>
+          </ul>
         </li>
       <% end %>
     </ul>
